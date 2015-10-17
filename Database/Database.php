@@ -12,6 +12,7 @@
 class Database
 {
 
+
     protected static $_instance;
 
     /**
