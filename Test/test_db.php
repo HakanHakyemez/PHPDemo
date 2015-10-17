@@ -4,13 +4,16 @@
  * User: 02483138
  * Date: 17.10.2015
  * Time: 17:33
+ *
+ * v.erdemci@gmail.com
+ * veysel123
  */
 require_once '../Database/Database.php';
 
-$host="localhost";
-$username="root";
-$password="";
-$database="hoi_db";
+$host="mysql.hostinger.web.tr";
+$username="u995979635_hoi";
+$password="veysel123";
+$database="u995979635_hoi";
 
 $db = new Database($host, $username, $password, $database);
 
