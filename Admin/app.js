@@ -36,4 +36,5 @@ adminModule.config(function($stateProvider, $urlRouterProvider, $httpProvider){
 
 adminModule.controller("loginCtrl",function($scope,$http,authService){
     $scope.auth=authService;
+    $scope.test="test";
 });
