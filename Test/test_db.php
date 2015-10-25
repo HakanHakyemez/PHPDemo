@@ -10,20 +10,30 @@
  */
 require_once '../Database/Database.php';
 
-$host="mysql.hostinger.web.tr";
-$username="u995979635_hoi";
-$password="veysel123";
-$database="u995979635_hoi";
+//$host="mysql.hostinger.web.tr";
+//$username="u995979635_hoi";
+//$password="veysel123";
+//$database="u995979635_hoi";
 
-$db = new Database($host, $username, $password, $database);
+$host="localhost";
+$username="root";
+$password="";
+$database="hoi_db";
+
+//$db = new Database($host, $username, $password, $database);
+$postdata = file_get_contents("php://input");
+$request = json_decode($postdata);
+$name = $request->FullName;
+$email = $request->Email;
+//echo $email; //this will go back under "data" of angular call.
 
 $data = array(
-    'FullName' => 'Hakan Hakyemez',
-    'Email' => 'email@example.com',
+    'FullName' => $name,
+    'Email' => $email,
     'IsActive' => true
 
 );
 
-$id = $db->insert('hoi_newsrequest', $data) ; // $id will have the auto-increment
-
-echo "Data inserted. ID:" . $id ;
+//$id = $db->insert('hoi_newsrequest', $data) ; // $id will have the auto-increment
+echo var_dump($data);
+echo "Data inserted. ID:" ;
