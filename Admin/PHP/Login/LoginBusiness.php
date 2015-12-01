@@ -6,21 +6,19 @@
  * Date: 24.10.2015
  * Time: 12:33
  */
-require_once __ROOT__.'/Database/Database.php';
+require_once "../Database/MysqliDb.php";
 class LoginBusiness
 {
+    private $db;
     public function __construct(){
-        //$host="mysql.hostinger.web.tr";
-        //$username="u995979635_hoi";
-        //$password="veysel123";
-        //$database="u995979635_hoi";
-
-        $host="localhost";
-        $username="root";
-        $password="";
-        $database="hoi_db";
-
-        $db=new Database();
+        $this->db=new MysqliDb();
     }
-    public function CheckUser($username,$password){}
+    public function getUser($username,$password){
+
+        $this->db->where ("Username",$username);
+        $this->db->where ('Password', $password);
+        $results = $this->db->getOne('hoi_login');
+
+        return $results;
+    }
 }

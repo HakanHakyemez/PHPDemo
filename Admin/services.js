@@ -1,9 +1,8 @@
 /**
  * Created by 02483138 on 24.10.2015.
  */
-var servicesModule=angular.module("services",["ngCookies"]);
-servicesModule.factory("authService", [
-    "$http", "$location", "$cookieStore", "$q", function ($http, $location, $cookieStore, $q) {
+var servicesModule=angular.module("services",['ngCookies']);
+servicesModule.factory("authService",function ($http, $location, $cookies, $q) {
         var _isLoggedIn;
 
         var _isAuthChecked;
@@ -17,71 +16,46 @@ servicesModule.factory("authService", [
         };
 
         var _getCurrentUser = function () {
-            if ($cookieStore.get("currentUser") == null) {
-                $http.post('//GetCurrentUser/')
-                    .then(function (result2) {
-                        $cookieStore.put('currentUser', result2.data);
-                        _isLoggedIn = true;//result.data == "false" ? false : true;
-                        _isAuthChecked = true;
-                        return result2.data;
-                    });
-            }
-
-            return $cookieStore.get("currentUser");
+            return $cookies.get("currentUser");
         };
 
         var _checkIsLoggedIn = function () {
-            var deferred = $q.defer();
 
-            $http.post('/Home/IsLoggedIn/')
-                .then(function (result) {
-                    if ($cookieStore.get("currentUser") == null && (result.data || result.data == "true")) {
-                        $http.post('/Home/GetCurrentUser/')
-                            .then(function (result2) {
-                                $cookieStore.put('currentUser', result2.data);
-                                _isLoggedIn = result.data == "true";
-                                _isAuthChecked = true;
-                                deferred.resolve(_isLoggedIn);
-                            });
-                    } else {
-                        _isLoggedIn = result.data == "true";
-                        _isAuthChecked = true;
-                        deferred.resolve(_isLoggedIn);
-                    }
-                });
-            return deferred.promise;
+            var check=$cookies.get("currentUser") == undefined || $cookies.get("currentUser") == "undefined" || $cookies.get("currentUser")==null;
+           return !(check);
         };
 
         var _login = function (username, password) {
-            if (!_isLoggedIn) {
-                //TODO Kullan?c? Ad? ve ?ifreyi bo? g�nderemiyecek Canl?ya ge�ince D�zeltilecek
-                Metronic.blockUI({ animate:true});
-                $http.post('/Home/LoginByEmail/', { username: username, password: password })
+            $.blockUI();
+                $http.post('PHP/Login/Handler_Login.php', { username: username, password: password })
                     .then(function (result) {
                         // Successful
-                        if (result.data) {
-                            $http.post('/Home/GetCurrentUser/')
-                                .then(function (result2) {
-                                    $cookieStore.put('currentUser', result2.data);
-                                    Metronic.unblockUI($(".page-content"));
-                                    $location.path("/");
-                                });
+                        if (result.data==false || result.data=="false") {
+                            $.unblockUI();
+                             toastr.error("Kullanıcı Bulunamadı");
+
+                        }else
+                        {
+
+                            $.unblockUI();
+                            toastr.success("Giriş Başarılı");
+                            $cookies.put('currentUser', result.data);
+                            $location.path("/");
                         }
 
                     });
-            } else
-                $location.path("/");
+
         };
 
 
-
         var _logout = function () {
-            $http.post('/Home/DoLogout/')
-                .then(function (result) {
-                    $cookieStore.remove('currentUser');
-                    _isLoggedIn = false;
-                    location.reload();
-                });
+            $cookies.remove('currentUser');
+            _isLoggedIn = false;
+            location.reload();
+            //$http.post('/Home/DoLogout/')
+            //    .then(function (result) {
+            //
+            //    });
 
         };
 
@@ -92,8 +66,5 @@ servicesModule.factory("authService", [
             logout: _logout,
             checkIsLoggedIn: _checkIsLoggedIn,
             isChecked: _isChecked,
-            isAuthorized: _isAuthorized,
-            forgot: _forgot
         };
-    }
-]);
+    });
