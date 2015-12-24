@@ -1,47 +1,48 @@
 <!DOCTYPE html>
-<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US" ng-app="contact"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US" ng-app="contact"><!--<![endif]-->
 
-<!-- Mirrored from rollthemes.com/demo/html/create-build/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 17 Oct 2015 13:34:47 GMT -->
-<head>
+<head >
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <title>Haliloğlu İnşaat</title>
-    <meta name="description" content="Create &amp; Build template which can be used for construction, building companies and other companies that offer building services. It also can be used for any other site">
-    <meta name="keywords" content="architecture, building, builder, company, construction, constructor, contractor, industry, plumber, roofing, electrician, engineer, handyman, painter, renovation">
-    <meta name="author" content="Rollthemes.com">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Hakan Hakyemez">
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- Bootstrap  -->
-    <link rel="stylesheet" type="text/css" href="../ParentTemplate/stylesheets/bootstrap.css" >
+    <link rel="stylesheet" type="text/css" href="../Template/stylesheets/bootstrap.css" >
 
     <!-- Theme Style -->
-    <link rel="stylesheet" type="text/css" href="../ParentTemplate/stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="../Template/stylesheets/style.css">
 
     <!-- Responsive -->
-    <link rel="stylesheet" type="text/css" href="../ParentTemplate/stylesheets/responsive.css">
+    <link rel="stylesheet" type="text/css" href="../Template/stylesheets/responsive.css">
 
     <!-- Colors -->
-    <link rel="stylesheet" type="text/css" href="../ParentTemplate/stylesheets/colors/color1.css" id="colors">
+    <link rel="stylesheet" type="text/css" href="../Template/stylesheets/colors/color1.css" id="colors">
     
     <!-- Animation Style -->
-    <link rel="stylesheet" type="text/css" href="../ParentTemplate/stylesheets/animate.css">
+    <link rel="stylesheet" type="text/css" href="../Template/stylesheets/animate.css">
+    <link rel="stylesheet" type="text/css" href="../Template/toastr/toastr.css">
 
     <!-- Favicon and touch icons  -->
-    <link href="../ParentTemplate/icon/apple-touch-icon-48-precomposed.png" rel="apple-touch-icon-precomposed" sizes="48x48">
-    <link href="../ParentTemplate/icon/apple-touch-icon-32-precomposed.png" rel="apple-touch-icon-precomposed">
-    <link href="../ParentTemplate/icon/favicon.png" rel="shortcut icon">
+    <link href="../Template/icon/apple-touch-icon-48-precomposed.png" rel="apple-touch-icon-precomposed" sizes="48x48">
+    <link href="../Template/icon/apple-touch-icon-32-precomposed.png" rel="apple-touch-icon-precomposed">
+    <link href="../Template/icon/favicon.png" rel="shortcut icon">
 
     <!--[if lt IE 9]>
         <script src="javascript/html5shiv.js"></script>
         <script src="javascript/respond.min.js"></script>
+
     <![endif]-->
 </head>
 
-<body class="header-sticky"> 
+<body ng-app="contact" class="header-sticky" >
     <div class="header-page">
         <div class="header-wrap clearfix">
             <!-- Header -->            
@@ -92,9 +93,10 @@
     </section>
 
     <!-- Contact Form -->
-    <section class="roll-row contact-form">
+    <section class="roll-row contact-form" ng-controller="contactCtrl">
         <div class="container">
             <div class="row">
+
                 <div class="col-md-7">
                     <div class="roll-title-box">
                         <div class="sub text-dark">
@@ -104,26 +106,42 @@
                             Formu
                         </div>
                     </div>
-                   
-                    <form class="roll-contact-form" id="contactform" method="post" action="http://rollthemes.com/demo/html/create-build/contact/contact-process.php">                          
-                        <div class="input-wrap name">
-                            <input type="text" value="" tabindex="1" placeholder="Adınız Soyadınız" name="name" id="name" required>
+                    <div class="col-md-12">
+                        <div class="alert alert-success" ng-show="isSuccess">
+                            <i class="fa fa-check"></i> Mesajınız Başarılı Bir Şekilde Ulaştırıldı.
                         </div>
-                        <div class="input-wrap last phone">
-                            <input type="text" value="" placeholder="Telefon" name="phone" id="phone" >
+                        <div class="alert alert-danger" ng-show="isError">
+                            <i class="fa fa-check"></i> Hata Oluştu.
+                        </div>
+                    </div>
+                    <form class="roll-contact-form" id="contactform" method="post">
+                        <div class="input-wrap name">
+                            <input type="text" value="" tabindex="1" ng-model="model.FullName" placeholder="Adınız Soyadınız" name="name" id="name" required>
+                        </div>
+                        <div class="input-wrap phone">
+                            <input type="text" value="" placeholder="Telefon" ng-model="model.Phone" name="phone" id="phone" >
                         </div>
                         <div class="input-wrap email">
-                            <input type="email" value="" tabindex="2" placeholder="Email Adres" name="email" id="email" required>
+                            <input type="email" value="" ng-model="model.Email" tabindex="2" placeholder="Email Adres" name="email" id="email" required>
                         </div>
-                        <div class="input-wrap last Subject">
-                            <input type="text" value="" placeholder="Konu" name="subject" id="Subject" >
+                        <div class="input-wrap  Subject">
+                            <input type="text" value="" ng-model="model.Subject" placeholder="Konu" name="subject" id="Subject" >
+                        </div>
+                        <div class="input-wrap  Subject">
+                            <select class="input-wrap " ng-model="model.Reason">
+                                <option disabled selected> Neden Seçiniz</option>
+                                <option value="Arsamı Değerlendirmek İstiyorum">Arsamı Değerlendirmek İstiyorum</option>
+                                <option value="Evimi Değerlendirmek İstiyorum">Evimi Değerlendirmek İstiyorum</option>
+                                <option value="İş Yerimi Değerlendirmek İstiyorum">İş Yerimi Değerlendirmek İstiyorum</option>
+
+                            </select>
                         </div>
 
-                        <div class="textarea-wrap">
-                            <textarea class="type-input" tabindex="3" placeholder="Mesajınız" name="message" id="message" required></textarea>
+                        <div class="textarea-wrap last" >
+                            <textarea class="type-input" ng-model="model.Message" tabindex="3" placeholder="Mesajınız" name="message" id="message" required></textarea>
                         </div>
                         <div class="submit-wrap">
-                            <button class="roll-button color">Gönder</button>
+                            <button class="roll-button color" ng-disabled="isDisabled" ng-click="saveContactForm(model)">Gönder</button>
                         </div>
                     </form><!-- /.comment-form -->  
                 </div>
@@ -184,16 +202,18 @@
     </a>
     
     <!-- Javascript -->
-    <script type="text/javascript" src="../ParentTemplate/javascript/jquery.min.js"></script>
-    <script type="text/javascript" src="../ParentTemplate/javascript/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../ParentTemplate/javascript/jquery.easing.js"></script>
+    <script type="text/javascript" src="../Template/javascript/jquery.min.js"></script>
+    <script type="text/javascript" src="../Template/javascript/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../Template/javascript/jquery.easing.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>    
-    <script type="text/javascript" src="../ParentTemplate/javascript/jquery.gomap-1.3.2.min.js"></script>
-    <script type="text/javascript" src="../ParentTemplate/javascript/jquery-validate.js"></script>
-    <script type="text/javascript" src="../ParentTemplate/javascript/switcher.js"></script>
-    <script type="text/javascript" src="../ParentTemplate/javascript/jquery.cookie.js"></script>
-    <script type="text/javascript" src="../ParentTemplate/javascript/main.js"></script>
-</body>
+    <script type="text/javascript" src="../Template/javascript/jquery.gomap-1.3.2.min.js"></script>
+    <script type="text/javascript" src="../Template/javascript/jquery-validate.js"></script>
+    <script type="text/javascript" src="../Template/javascript/switcher.js"></script>
+    <script type="text/javascript" src="../Template/javascript/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../Template/toastr/toastr.js"></script>
+    <script type="text/javascript" src="../Template/javascript/main.js"></script>
+    <script type="text/javascript" src="../Template/javascript/angular.min.js"></script>
+    <script type="text/javascript" src="../Template/contact.js"></script>
 
-<!-- Mirrored from rollthemes.com/demo/html/create-build/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 17 Oct 2015 13:34:48 GMT -->
+</body>
 </html>

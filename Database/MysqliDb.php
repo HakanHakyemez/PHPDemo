@@ -202,10 +202,14 @@ class MysqliDb
      * @param int $port
      * @param string $charset
      */
-    public function __construct($host = null, $username = null, $password = null, $db = null, $port = null, $charset = 'utf8')
+    public function __construct($port = null, $charset = 'utf8')
     {
         $isSubQuery = false;
 
+        $host="localhost";
+        $username="root";
+        $password="";
+        $db="hoi_db";
         // if params were passed as array
         if (is_array($host)) {
             foreach ($host as $key => $val) {

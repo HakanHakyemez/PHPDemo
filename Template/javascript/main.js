@@ -244,51 +244,7 @@
         });
     };
 
-    var ajaxContactForm = function() {      
-        $('#contactform').each(function() {
-            $(this).validate({
-                submitHandler: function( form ) {
-                    var $form = $(form),
-                        str = $form.serialize(),
-                        loading = $('<div />', { 'class': 'loading' });
 
-                    $.ajax({
-                        type: "POST",
-                        url:  $form.attr('action'),
-                        data: str,
-                        beforeSend: function () {
-                            $form.find('.send-wrap').append(loading);
-                        },
-                        success: function( msg ) {
-                            var result, cls;
-
-                            if ( msg == 'Success' ) {
-                                result = 'Your message has been sent. Thank you!';
-                                cls = 'msg-success';
-                            } else {
-                                result = 'Error sending email.';
-                                cls = 'msg-error';
-                            }
-
-                            $form.prepend(
-                                $('<div />', {
-                                    'class': 'roll-alert ' + cls,
-                                    'text' : result
-                                }).append(
-                                    $('<a class="close" href="#"><i class="fa fa-close"></i> x</a>')
-                                )
-                            );
-
-                            $form.find(':input').not('.submit').val('');
-                        },
-                        complete: function (xhr, status, error_thrown) {
-                            $form.find('.loading').remove();
-                        }
-                    });
-                }
-            });
-        }); // each contactform
-    };     
 
     var blogSlider = function() {        
         if ( $().flexslider ) {
@@ -371,8 +327,8 @@
         if ( $().goMap ) {            
             $("#map").goMap({ // load map
                 markers: [{  
-                    address: 'PO Box 97845 Baker st. 567, Los Angeles, California, United States', 
-                    title: 'My company',
+                    address: '1835/1 Karşıyaka / İzmir',
+                    title: 'Haliloğlu İnşaat',
                 }],
                 scrollwheel: false, 
                 disableDoubleClickZoom: false,
@@ -522,7 +478,7 @@
         tabs();
         rollNewCarousel();
         rollPortfolioRelated();  
-        ajaxContactForm(); 
+
         blogSlider();
         blogIsotop();
         portfolioIsotope();        
