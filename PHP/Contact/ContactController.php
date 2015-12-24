@@ -18,5 +18,10 @@ class ContactController
         $arrayModel=(array)$model;
         return $this->business->save($arrayModel);
     }
+    public function saveEmail($model){
+
+        return $this->business->saveEmail($model);
+    }
+
 
 }

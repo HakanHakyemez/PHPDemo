@@ -1,3 +1,4 @@
+
 window.console = window.console || function() {
    var e = {};
    e.log = e.warn = e.debug = e.info = e.error = e.time = e.dir = e.profile = e.clear = e.exception = e.trace = e.assert = function() {};
@@ -5,11 +6,12 @@ window.console = window.console || function() {
 }();
 
 $(document).ready(function() {
-	var e =  '<div class="switcher-container">'+
+
+	var e =  '<div class="switcher-container" ng-app="switch">'+
                '<h2>Haberiniz Olsun<a href="#" class="sw-click"><span class="icon-settings"></a></h2>'+
 
 
-        '<div class="selector-box">'+
+        '<div class="selector-box" ng-controller="switchCtrl">'+
             '<div class="clearfix">' +
             '</div>'+
 
@@ -18,10 +20,12 @@ $(document).ready(function() {
 
         '<div class="row">' +
         '<div class="col-md-11">' +
-        '<input style="color:white" type="email" class="form-control margin" id="email2" placeholder="Enter email">' +
+        '<input style="color:white" type="text" class="form-control margin"  id="fullname2" placeholder="Adınız">' +
+        '<input style="color:white" type="email" class="form-control margin"  id="email2" placeholder="Email Adresinizi Giriniz">' +
+
         '</div>' +
         '</div>'+
-            '<div class="row"><div class="col-md-11"> <a href="#" class="pull-right">Gönder</a></div></div>'
+            '<div class="row"><div class="col-md-11"> <a href="#" class="pull-right" onclick="sendEmail()">Gönder</a></div></div>'
 
         '</div></div>'+
 
@@ -98,7 +102,20 @@ $(document).ready(function() {
             }
         }
     };
+    function sendEmail(){
+        var email=$("#email2").val();
+        var fullname=$("#fullname2").val();
+        var model={Email:email,FullName:fullname,IsActive:1};
+        $.post( "../PHP/Contact/Handler_Contact.php?request=email", model,function( data ) {
+           if(parseInt(data)>0){
+               toastr.success("İşlem Başarılı");
+               $("#email2").set(null);
+                $("#fullname2").set("");
+           }else
+               toastr.error("Hata Oluştu");
 
+        });
+    };
 	
     var switchAnimate = {
 		loadEvent: function() {
