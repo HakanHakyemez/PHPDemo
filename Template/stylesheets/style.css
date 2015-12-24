@@ -2214,12 +2214,12 @@ body.home-dark {
 /* Switcher
 -------------------------------------------------------------- */
 .switcher-container {
-   position: fixed;
-   right: -290px;
-   top: 150px;
-   width: 290px;
-   background-color: #55bce9;
-   z-index: 99999999;
+	position: fixed;
+	right: -290px;
+	top: 150px;
+	width: 290px;
+	background-color: #55bce9;
+	z-index: 99999999;
 }
 
 .switcher-container h2 {
@@ -2354,7 +2354,7 @@ body.home-dark {
 
 .sw-odd {
 	background-color: #323232;
-	padding: 21px 0 30px 50px;
+	padding: 21px 0 21px 30px;
 	-webkit-transition: all 0.3s;
 	   -moz-transition: all 0.3s;
 		-ms-transition: all 0.3s;

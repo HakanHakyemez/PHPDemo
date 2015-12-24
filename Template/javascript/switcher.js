@@ -6,76 +6,32 @@ window.console = window.console || function() {
 
 $(document).ready(function() {
 	var e =  '<div class="switcher-container">'+
-               '<h2>Haberiniz Olsun<a href="#" class="sw-click"><span class="icon-settings"></span></a><a href="#" class="sw-arrow"></a></h2>'+
-               '<div class="selector-box">'+
-                    '<div class="clearfix"></div>'+
-                    '<div class="sw-odd"><h3>Mail Adresini Bırak Biz Sanaa Ulaşalım:</h3>'+
-                    '<div class="ws-colors">'+
-                        '<a href="#" class="styleswitch" id="color1">'+
-                            '<img src="images/icon/color-1.png" alt="image" style="width:40px; height: 41px;">'+
-                        '</a>'+
-                        '<a href="#" class="styleswitch" id="color2">'+
-                            '<img src="images/icon/color-2.png" alt="image" style="width:40px; height: 41px;">'+
-                        '</a>'+
-                        '<a href="#" class="styleswitch" id="color3">'+
-                            '<img src="images/icon/color-3.png" alt="image" style="width:40px; height: 41px;">'+
-                        '</a>'+
-                    '</div></div>'+
-                    '<div class="sw-even"><h3>Color chema:</h3>'+
-                        '<a href="#" class="sw-light">Light</a>' +
-                        '<a href="#" class="sw-dark">Dark</a>' +
-                    '</div>'+
-                    '<div class="sw-odd sw-form" style="display: none;">' +
-                        '<h3>Background pattern:</h3>' +
-                        '<a href="#" class="sw-roll un-activebox box">Boxed Version</a>' +
-                        '<a href="#" class="sw-roll un-activemargin vmargin">Vertical Margins</a>' +
-                    '</div>' +
-                    '<div class="sw-even pattern" style="display: none;"><h3>Background pattern:</h3>'+
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern-1.jpg"><img src="images/icon/pattern-1.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern-2.jpg"><img src="images/icon/pattern-2.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern-3.jpg"><img src="images/icon/pattern-3.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern-4.jpg"><img src="images/icon/pattern-4.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern.jpg"><img src="images/icon/pattern.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern-5.jpg"><img src="images/icon/pattern-5.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern-6.jpg"><img src="images/icon/pattern-6.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern-7.jpg"><img src="images/icon/pattern-7.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern-8.jpg"><img src="images/icon/pattern-8.jpg" alt="image"></a>' +
-                         '<a href="#" class="sw-pattern" data-image="images/icon/pattern-9.jpg"><img src="images/icon/pattern-9.jpg" alt="image"></a>' +
-                    '</div>'+
-                  
-                  '<div class="clearfix"></div>'+
-               '</div>'+
-            '</div>';
+               '<h2>Haberiniz Olsun<a href="#" class="sw-click"><span class="icon-settings"></a></h2>'+
+
+
+        '<div class="selector-box">'+
+            '<div class="clearfix">' +
+            '</div>'+
+
+        '<div class="sw-odd">'+
+        '<div class="ws-colors">'+
+
+        '<div class="row">' +
+        '<div class="col-md-11">' +
+        '<input style="color:white" type="email" class="form-control margin" id="email2" placeholder="Enter email">' +
+        '</div>' +
+        '</div>'+
+            '<div class="row"><div class="col-md-11"> <a href="#" class="pull-right">Gönder</a></div></div>'
+
+        '</div></div>'+
+
+        '</div>'+
+
+
+
+
+
+        '</div>';
 	$('body').append(e);
 	switchAnimate.loadEvent();
 	switchColor.loadEvent();

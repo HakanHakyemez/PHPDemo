@@ -37,6 +37,7 @@
     <link href="../Template/icon/apple-touch-icon-32-precomposed.png" rel="apple-touch-icon-precomposed">
     <link href="../Template/icon/favicon.png" rel="shortcut icon">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!--[if lt IE 9]>
     <script src="javascript/html5shiv.js"></script>
@@ -70,19 +71,7 @@
 
     <![endif]-->
 </head>
-<style>
-    .row-centered {
-        text-align:center;
-    }
-    .col-centered {
-        display:inline-block;
-        float:none;
-        /* reset the text-align */
-        text-align:left;
-        /* inline-block space fix */
-        margin-right:-4px;
-    }
-</style>
+
 
 <body class="header-sticky home"  ng-app="app" ng-controller="indexCtrl" >
 <div class="boxed" >
@@ -554,19 +543,58 @@
 
 
                         <div class="content-inner photo">
-                            <div class="col-md-6 ">
-                                <div class="featured-about blog-slider" data-auto="true" data-effect="slide" data-direction="horizotal">
-                                    <div class="flexslider ">
-                                        <ul class="slides">
-                                            <li>
-                                                <img src="../ParentTemplate/images/blog/about.jpg" alt="image" height="300px" width="300px">
-                                            </li>
-                                            <li>
-                                                <img src="../ParentTemplate/images/blog/about.jpg" alt="image" height="300px" width="300px">
-                                            </li>
-                                        </ul>
+                            <div class="col-md-12 ">
+
+                                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                    <!-- Indicators -->
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+                                        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+                                    </ol>
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <img src="http://lorempixel.com/800/300/cats/1/" alt="First slide">
+                                            <div class="container">
+                                                <div class="carousel-caption">
+                                                    <h1>Project 1</h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <img src="http://lorempixel.com/800/300/cats/3/" alt="Second slide">
+                                            <div class="container">
+                                                <div class="carousel-caption">
+                                                    <h1>Project 2</h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <img src="http://lorempixel.com/800/300/cats/4/" alt="Third slide">
+                                            <div class="container">
+                                                <div class="carousel-caption">
+                                                    <h1>Project 3</h1>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div><!-- /.gallery-about -->
+                                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                    </a>
+                                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </a>
+                                </div><br>
+
+
+
+
+
+                                <!-- Post Info -->
+
+
+                                <!-- LINKED NAV -->
+
                             </div><!-- /.col-md-6 -->
                         </div><!-- /.content -->
 
@@ -587,6 +615,20 @@
     <span class="icon-chevron-small-up"></span>
 </a>
 
+
+<script>
+    $(document).ready(function(){
+
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                    results = regex.exec(location.search);
+            return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        $('#myCarousel').carousel(getParameterByName('slide'));
+    });
+</script>
 
 
 
