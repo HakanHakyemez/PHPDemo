@@ -6,10 +6,10 @@ window.console = window.console || function() {
 
 $(document).ready(function() {
 	var e =  '<div class="switcher-container">'+
-               '<h2>Style Selector<a href="#" class="sw-click"><span class="icon-settings"></span></a><a href="#" class="sw-arrow"></a></h2>'+
+               '<h2>Haberiniz Olsun<a href="#" class="sw-click"><span class="icon-settings"></span></a><a href="#" class="sw-arrow"></a></h2>'+
                '<div class="selector-box">'+
                     '<div class="clearfix"></div>'+
-                    '<div class="sw-odd"><h3>Choose accent color:</h3>'+
+                    '<div class="sw-odd"><h3>Mail Adresini Bırak Biz Sana Ulaşalım:</h3>'+
                     '<div class="ws-colors">'+
                         '<a href="#" class="styleswitch" id="color1">'+
                             '<img src="images/icon/color-1.png" alt="image" style="width:40px; height: 41px;">'+

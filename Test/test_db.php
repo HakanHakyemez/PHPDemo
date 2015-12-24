@@ -34,8 +34,8 @@ $db = new MysqliDb($host, $username, $password, $database);
 
 $postdata = file_get_contents("php://input");
 $request = json_decode($postdata);
-$name ="admin"; //$request->FullName;
-$email ="a@mail.com";// $request->Email;
+$name =$request->FullName;
+$email = $request->Email;
 //echo $email; //this will go back under "data" of angular call.
 
 $data = array(
