@@ -17,5 +17,8 @@ class ContactBusiness
         $response = $this->db->insert("hoi_contact",$model);
         return $response;
     }
-
+    public function saveEmail($model){
+        $response = $this->db->insert("hoi_newsrequest",$model);
+        return $response;
+    }
 }
