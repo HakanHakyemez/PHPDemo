@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US" ng-app="contact"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US" ng-app="contact"><!--<![endif]-->
-
-<head >
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US" ng-app="contact">
+<!--<![endif]-->
+<head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
@@ -10,210 +11,224 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="Hakan Hakyemez">
-
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
     <!-- Bootstrap  -->
-    <link rel="stylesheet" type="text/css" href="../Template/stylesheets/bootstrap.css" >
-
+    <link rel="stylesheet" type="text/css" href="../Template/stylesheets/bootstrap.css">
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="../Template/stylesheets/style.css">
-
     <!-- Responsive -->
     <link rel="stylesheet" type="text/css" href="../Template/stylesheets/responsive.css">
-
     <!-- Colors -->
     <link rel="stylesheet" type="text/css" href="../Template/stylesheets/colors/color1.css" id="colors">
-    
     <!-- Animation Style -->
     <link rel="stylesheet" type="text/css" href="../Template/stylesheets/animate.css">
     <link rel="stylesheet" type="text/css" href="../Template/toastr/toastr.css">
-
     <!-- Favicon and touch icons  -->
     <link href="../Template/icon/apple-touch-icon-48-precomposed.png" rel="apple-touch-icon-precomposed" sizes="48x48">
     <link href="../Template/icon/apple-touch-icon-32-precomposed.png" rel="apple-touch-icon-precomposed">
     <link href="../Template/icon/favicon.png" rel="shortcut icon">
-
     <!--[if lt IE 9]>
-        <script src="javascript/html5shiv.js"></script>
-        <script src="javascript/respond.min.js"></script>
-
+    <script src="javascript/html5shiv.js"></script>
+    <script src="javascript/respond.min.js"></script>
     <![endif]-->
 </head>
 
-<body ng-app="contact" class="header-sticky" >
-    <div class="header-page">
-        <div class="header-wrap clearfix">
-            <!-- Header -->            
-            <header id="header" class="header clearfix"> 
-                <div class="header-inner">
-                    <div id="logo" class="logo">
-                        <a href="index.html" rel="home">
-                            <img style="max-width: 100%;    width: 140px;    margin-top: -12px;" src="../Template/images/logo.png" alt="image">
-                        </a>
-                    </div><!-- /.logo -->
-                    <div class="nav-wrap">
-                        <div class="btn-menu"></div><!-- //mobile menu button -->
-                        <nav id="mainnav" class="mainnav">
-                            <ul class="menu">
-                                <li>
-                                    <a href="index.html">Anasayfa</a>
+<body ng-app="contact" class="header-sticky">
+<div class="header-page">
+    <div class="header-wrap clearfix">
+        <!-- Header -->
+        <header id="header" class="header clearfix">
+            <div class="header-inner">
+                <div id="logo" class="logo">
+                    <a href="index.html" rel="home">
+                        <img style="max-width: 100%;    width: 140px;    margin-top: -12px;" src="../Template/images/logo.png" alt="image">
+                    </a>
+                </div>
+                <!-- /.logo -->
+                <div class="nav-wrap">
+                    <div class="btn-menu"></div>
+                    <!-- //mobile menu button -->
+                    <nav id="mainnav" class="mainnav">
+                        <ul class="menu">
+                            <li>
+                                <a href="index.html">Anasayfa</a>
 
-                                </li>
-                                <li><a href="../Template/about.html">Hakkımızda</a></li>
+                            </li>
+                            <li><a href="../Template/about.html">Hakkımızda</a></li>
 
-                                <li class="active">
-                                    <a href="../Template/contact.html">İLETİŞİM</a>
-                                </li>
-                            </ul><!-- /.menu -->
-                        </nav><!-- /.mainnav -->
-                    </div><!-- /.nav-wrap -->
-                </div><!-- /.header-inner --> 
-            </header><!-- /.header -->
-            
-            <!-- Page Title -->
-            <div class="page-title text-center">                
-                <div class="page-title-heading">
-                    <h1 class="title"> İLETİŞİM Formu </h1>
-                </div><!-- /.page-title-captions -->
+                            <li class="active">
+                                <a href="../Template/contact.html">İLETİŞİM</a>
+                            </li>
+                        </ul>
+                        <!-- /.menu -->
+                    </nav>
+                    <!-- /.mainnav -->
+                </div>
+                <!-- /.nav-wrap -->
+            </div>
+            <!-- /.header-inner -->
+        </header>
+        <!-- /.header -->
 
-            </div><!-- /.page-title --> 
-        </div><!-- /.header-wrap -->        
-    </div><!-- /.header-page -->
+        <!-- Page Title -->
+        <div class="page-title text-center">
+            <div class="page-title-heading">
+                <h1 class="title"> İLETİŞİM Formu </h1>
+            </div>
+            <!-- /.page-title-captions -->
 
-    <section class="roll-row contact" style="padding: 120px 0 0 0;">
-        <div class="container">
-            <div class="row">
+        </div>
+        <!-- /.page-title -->
+    </div>
+    <!-- /.header-wrap -->
+</div>
+<!-- /.header-page -->
+
+<section class="roll-row contact" style="padding: 120px 0 0 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="map" style="width: 100%; height: 500px; "></div>
+            </div>
+            <!-- /.col-md-12 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+
+<!-- Contact Form -->
+<section class="roll-row contact-form" ng-controller="contactCtrl">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-7">
+                <div class="roll-title-box">
+                    <div class="sub text-dark">
+                        İLETİŞİM
+                    </div>
+                    <div class="main text-dark">
+                        Formu
+                    </div>
+                </div>
                 <div class="col-md-12">
-                    <div id="map" style="width: 100%; height: 500px; "></div> 
-                </div><!-- /.col-md-12 -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </section>
-
-    <!-- Contact Form -->
-    <section class="roll-row contact-form" ng-controller="contactCtrl">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-7">
-                    <div class="roll-title-box">
-                        <div class="sub text-dark">
-                           İLETİŞİM
-                        </div>
-                        <div class="main text-dark">
-                            Formu
-                        </div>
+                    <div class="alert alert-success" ng-show="isSuccess">
+                        <i class="fa fa-check"></i> Mesajınız Başarılı Bir Şekilde Ulaştırıldı.
                     </div>
-                    <div class="col-md-12">
-                        <div class="alert alert-success" ng-show="isSuccess">
-                            <i class="fa fa-check"></i> Mesajınız Başarılı Bir Şekilde Ulaştırıldı.
-                        </div>
-                        <div class="alert alert-danger" ng-show="isError">
-                            <i class="fa fa-check"></i> Hata Oluştu.
-                        </div>
+                    <div class="alert alert-danger" ng-show="isError">
+                        <i class="fa fa-check"></i> Hata Oluştu.
                     </div>
-                    <form class="roll-contact-form" id="contactform" method="post">
-                        <div class="input-wrap name">
-                            <input type="text" value="" tabindex="1" ng-model="model.FullName" placeholder="Adınız Soyadınız" name="name" id="name" required>
-                        </div>
-                        <div class="input-wrap phone">
-                            <input type="text" value="" placeholder="Telefon" ng-model="model.Phone" name="phone" id="phone" >
-                        </div>
-                        <div class="input-wrap email">
-                            <input type="email" value="" ng-model="model.Email" tabindex="2" placeholder="Email Adres" name="email" id="email" required>
-                        </div>
-                        <div class="input-wrap  Subject">
-                            <input type="text" value="" ng-model="model.Subject" placeholder="Konu" name="subject" id="Subject" >
-                        </div>
-                        <div class="input-wrap  Subject">
-                            <select class="input-wrap " ng-model="model.Reason">
-                                <option disabled selected> Neden Seçiniz</option>
-                                <option value="Arsamı Değerlendirmek İstiyorum">Arsamı Değerlendirmek İstiyorum</option>
-                                <option value="Evimi Değerlendirmek İstiyorum">Evimi Değerlendirmek İstiyorum</option>
-                                <option value="İş Yerimi Değerlendirmek İstiyorum">İş Yerimi Değerlendirmek İstiyorum</option>
+                </div>
+                <form class="roll-contact-form" id="contactform" method="post">
+                    <div class="input-wrap name">
+                        <input type="text" value="" tabindex="1" ng-model="model.FullName" placeholder="Adınız Soyadınız" name="name" id="name" required>
+                    </div>
+                    <div class="input-wrap phone">
+                        <input type="text" value="" placeholder="Telefon" ng-model="model.Phone" name="phone" id="phone">
+                    </div>
+                    <div class="input-wrap email">
+                        <input type="email" value="" ng-model="model.Email" tabindex="2" placeholder="Email Adres" name="email" id="email" required>
+                    </div>
+                    <div class="input-wrap  Subject">
+                        <input type="text" value="" ng-model="model.Subject" placeholder="Konu" name="subject" id="Subject">
+                    </div>
+                    <div class="input-wrap  Subject">
+                        <select class="input-wrap " ng-model="model.Reason">
+                            <option disabled selected> Neden Seçiniz</option>
+                            <option value="Arsamı Değerlendirmek İstiyorum">Arsamı Değerlendirmek İstiyorum</option>
+                            <option value="Evimi Değerlendirmek İstiyorum">Evimi Değerlendirmek İstiyorum</option>
+                            <option value="İş Yerimi Değerlendirmek İstiyorum">İş Yerimi Değerlendirmek İstiyorum</option>
 
-                            </select>
-                        </div>
+                        </select>
+                    </div>
 
-                        <div class="textarea-wrap last" >
-                            <textarea class="type-input" ng-model="model.Message" tabindex="3" placeholder="Mesajınız" name="message" id="message" required></textarea>
-                        </div>
-                        <div class="submit-wrap">
-                            <button class="roll-button color" ng-disabled="isDisabled" ng-click="saveContactForm(model)">Gönder</button>
-                        </div>
-                    </form><!-- /.comment-form -->  
+                    <div class="textarea-wrap last">
+                        <textarea class="type-input" ng-model="model.Message" tabindex="3" placeholder="Mesajınız" name="message" id="message" required></textarea>
+                    </div>
+                    <div class="submit-wrap">
+                        <button class="roll-button color" ng-disabled="isDisabled" ng-click="saveContactForm(model)">Gönder</button>
+                    </div>
+                </form>
+                <!-- /.comment-form -->
+            </div>
+
+            <div class="col-md-5 padl100">
+                <div class="roll-title-box">
+                    <div class="sub text-dark">
+                        İLETİŞİM
+                    </div>
+                    <div class="main text-dark">
+                        Detayları
+                    </div>
                 </div>
 
-                <div class="col-md-5 padl100">
-                    <div class="roll-title-box">
-                        <div class="sub text-dark">
-                            İLETİŞİM
-                        </div>
-                        <div class="main text-dark">
-                            Detayları
-                        </div>
-                    </div>    
+                <ul class="roll-contact-info">
+                    <li class="address">Posta Adresi:
+                        <p>1835/1 Sokak No : 3/1 D:1 Duman Apartmanı Karşıyaka / İzmir</p>
+                    </li>
+                    <li class="phone">Telefon:
+                        <p>0 232 369 08 73</p>
+                    </li>
 
-                    <ul class="roll-contact-info">
-                        <li class="address">Posta Adresi:
-                            <p>1835/1 Sokak  No : 3/1 D:1 Duman Apartmanı
-                                Karşıyaka / İzmir</p>
-                        </li>
-                        <li class="phone">Telefon:
-                            <p>0 232 369 08 73</p>
-                        </li>
+                    <li class="email">Email:
+                        <p> info@mhalilogluinsaat.com</p>
+                    </li>
 
-                        <li class="email">Email:
-                            <p> info@mhalilogluinsaat.com</p>
-                        </li> 
+                </ul>
+                <!-- /.contact-infomation -->
 
-                    </ul><!-- /.contact-infomation -->
-
-                </div><!-- /.col-md-5 -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </section> 
-    
-<hr>
-    <!-- Bottom -->
-    <div class="bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <ul class="socials">
-                        <li class="facebook"><a href="https://www.facebook.com/Halilo%C4%9Flu-In%C5%9Faat-675026255853028/?fref=ts"><span>F</span></a></li>
-                        <li class="twitter"><a><span>L</span></a></li>
-                        <li class="google"><a><span>G</span></a></li>
-                    </ul>
-                    <div class="copyright">
-                        <p>© 2015 Her Hakkı Gizlidir <span class="icon-box  "></span> -
-                            <a href="http://hakanhakyemez.com/" target = "_blank"> İhsan Haliloğlu</a></p>
-                    </div>                   
-                </div><!-- /.span12 -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
+            </div>
+            <!-- /.col-md-5 -->
+        </div>
+        <!-- /.row -->
     </div>
+    <!-- /.container -->
+</section>
 
-    <!-- Go Top -->
-    <a class="go-top">
-        <span class="icon-chevron-small-up"></span>
-    </a>
-    
-    <!-- Javascript -->
-    <script type="text/javascript" src="../Template/javascript/jquery.min.js"></script>
-    <script type="text/javascript" src="../Template/javascript/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../Template/javascript/jquery.easing.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>    
-    <script type="text/javascript" src="../Template/javascript/jquery.gomap-1.3.2.min.js"></script>
-    <script type="text/javascript" src="../Template/javascript/jquery-validate.js"></script>
-    <script type="text/javascript" src="../Template/javascript/switcher.js"></script>
-    <script type="text/javascript" src="../Template/javascript/jquery.cookie.js"></script>
-    <script type="text/javascript" src="../Template/toastr/toastr.js"></script>
-    <script type="text/javascript" src="../Template/javascript/main.js"></script>
-    <script type="text/javascript" src="../Template/javascript/angular.min.js"></script>
-    <script type="text/javascript" src="../Template/contact.js"></script>
+<hr>
+<!-- Bottom -->
+<div class="bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="socials">
+                    <li class="facebook"><a href="https://www.facebook.com/Halilo%C4%9Flu-In%C5%9Faat-675026255853028/?fref=ts"><span>F</span></a></li>
+                    <li class="twitter"><a><span>L</span></a></li>
+                    <li class="google"><a><span>G</span></a></li>
+                </ul>
+                <div class="copyright">
+                    <p>© 2015 Her Hakkı Gizlidir <span class="icon-box  "></span> -
+                        <a href="http://hakanhakyemez.com/" target="_blank"> İhsan Haliloğlu</a></p>
+                </div>
+            </div>
+            <!-- /.span12 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</div>
+
+<!-- Go Top -->
+<a class="go-top">
+    <span class="icon-chevron-small-up"></span>
+</a>
+
+<!-- Javascript -->
+<script type="text/javascript" src="../Template/javascript/jquery.min.js"></script>
+<script type="text/javascript" src="../Template/toastr/toastr.min.js"></script>
+<script type="text/javascript" src="../Template/javascript/bootstrap.min.js"></script>
+<script type="text/javascript" src="../Template/javascript/jquery.easing.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="../Template/javascript/jquery.gomap-1.3.2.min.js"></script>
+<script type="text/javascript" src="../Template/javascript/jquery-validate.js"></script>
+<script type="text/javascript" src="../Template/javascript/switcher.js"></script>
+<script type="text/javascript" src="../Template/javascript/jquery.cookie.js"></script>
+<script type="text/javascript" src="../Template/toastr/toastr.js"></script>
+<script type="text/javascript" src="../Template/javascript/main.js"></script>
+<script type="text/javascript" src="../Template/javascript/angular.min.js"></script>
+<script type="text/javascript" src="../Template/contact.js"></script>
 
 </body>
+
 </html>

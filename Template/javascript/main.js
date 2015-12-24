@@ -409,16 +409,7 @@
         });
     };  
 
-    var retinaLogos = function() {
-      var retina = window.devicePixelRatio > 1 ? true : false;
 
-        if(retina) {
-            $('.header .logo').find('img').attr({src:'./images/logo@2x.png',width:'478',height:'48'});
-            $('.home-dark .header .logo').find('img').attr({src:'./images/logo_color2@2x.png',width:'478',height:'48'});
-            $('.home-boxed .logo').find('img').attr({src:'./images/logo_color3@2x.png',width:'478',height:'48'});
-            
-        }
-    };    
     
     var parallax = function() {
         if ( $().parallax && isMobile.any() == null ) {
@@ -486,7 +477,7 @@
         goTop();
         removePreloader();
         responsiveVideo();
-        retinaLogos();  
+
         alertBox(); 
         gmapSetup();
         parallax();    
