@@ -207,9 +207,9 @@ class MysqliDb
         $isSubQuery = false;
 
         $host="localhost";
-        $username="root";
-        $password="";
-        $db="hoi_db";
+        $username="mhalilog_hoi";
+        $password="veysel123";
+        $db="mhalilog_hoi";
         // if params were passed as array
         if (is_array($host)) {
             foreach ($host as $key => $val) {
