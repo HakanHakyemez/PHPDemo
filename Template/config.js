@@ -63,7 +63,24 @@ appModule.controller("indexCtrl", function ($scope, $http, authFactory) {
     $scope.currentSchool = authFactory.getCurrentUser();
     $scope.authFactory = authFactory;
 
+    $scope.classes=["slide1","slide2","slide3"];
+
+    $scope.items = [];
+
+    $scope.build={buildPhotos:[]};
+    $scope.build.slideHeader ="Başlık 1";
+    $scope.build.slideSummary="İlan Özeti";
+    $scope.build.modalHeader="Modal Başlık";
+    $scope.build.modalBuildUrl="/Template/images/logo.png";
+    $scope.build.modalContent="Model İçeriği";
+    $scope.build.modalBuildDescription="Bina ile ilgili içerik.";
+    $scope.build.modalBuildAddress="Örnek Adres";
+    $scope.build.buildPhotos.push("/Template/images/logo.png");
+    $scope.build.buildPhotos.push("/Template/images/logo.png");
+    $scope.build.buildPhotos.push("/Template/images/logo.png");
+    $scope.build.modalVideoUlr = "https://www.youtube.com/watch?v=AWZJzldWEaw";
+
+    $scope.items.push($scope.build);
 
 });
 //#endregion
-
