@@ -1,5 +1,5 @@
-var adminEmpModule = angular.module('app');
+var adminEmpModule = angular.module('admin');
 
 adminEmpModule.controller('adminCtrl', function ($scope, $http) {
-
+$scope.test="admin home";
 });

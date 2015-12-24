@@ -1,40 +1,78 @@
 /**
  * Created by 02483138 on 24.10.2015.
  */
-var adminModule=angular.module("admin",["ui.router","services","ngCookies"]);
+var adminModule=angular.module("admin",["ui.router","services","oc.lazyLoad"]);
 adminModule.config(function($stateProvider, $urlRouterProvider, $httpProvider){
-    $urlRouterProvider.otherwise("/login");
+    var checkIsLoggedIn = function (authService, $location) {
+        if (authService.checkIsLoggedIn())
+            return true;
+        else
+            $location.path("/login");
+    };
+
+    $urlRouterProvider.otherwise("/visitor");
     $stateProvider
-        .state('login', {
-            url: "/login",
-            templateUrl: "login.html",
-            controller: 'loginCtrl'
-        })
         .state('main', {
-            templateUrl: "/App/main.html",
-            controller: 'loginController',
+            templateUrl: "main.html",
+            controller: "mainCtrl",
+            resolve: {
+                checkIsLoggedIn:checkIsLoggedIn,
+            }
+        })
+        .state('login', {
+            url: '/login',
+            templateUrl: "login.html",
+            controller:"loginCtrl"
 
         })
-        .state('main.index', {
+        .state('main.home', {
             url: "/",
-            templateUrl: "/App/Dashboard/Templates/index.html",
-            controller: 'dashboardController',
-            title: "Anasayfa",
+            templateUrl: "App/Home/admin.html",
+            controller: "adminCtrl",
             resolve: {
-
-                deps: [
-                    '$ocLazyLoad', function($ocLazyLoad) {
-                        return $ocLazyLoad.load({
-                            name: 'allianz',
-                            files: ['/App/Dashboard/Scripts/dashboard.js']
-                        });
+                checkIsLoggedin: checkIsLoggedIn,
+                loadModule:[
+                    "$ocLazyLoad",function($ocLazyLoad){
+                        return $ocLazyLoad.load("App/Home/admin.js")
                     }
                 ]
             }
         })
+        .state('main.newsrequest', {
+            url: "/newsrequest",
+            templateUrl: "App/Newsrequest/newsrequest.html",
+            controller: "newsrequestCtrl",
+            resolve: {
+                checkIsLoggedin: checkIsLoggedIn,
+                loadModule:[
+                    "$ocLazyLoad",function($ocLazyLoad){
+                        return $ocLazyLoad.load("App/Newsrequest/newsrequest.js")
+                    }
+                ]
+            }
+        })
+        .state('main.visitor', {
+            url: "/visitor",
+            templateUrl: "App/Visitor/visitor.html",
+            controller: "visitorCtrl",
+            resolve: {
+                checkIsLoggedin: checkIsLoggedIn,
+                loadModule:[
+                    "$ocLazyLoad",function($ocLazyLoad){
+                        return $ocLazyLoad.load("App/Visitor/visitor.js")
+                    }
+                ]
+            }
+        })
+    ;
 });
 
 adminModule.controller("loginCtrl",function($scope,$http,authService){
+    $scope.auth=authService;
+    $scope.test="test";
+});
+
+adminModule.controller("mainCtrl",function($scope,$http,authService){
     $scope.auth=authService;
     $scope.test="test";
 });

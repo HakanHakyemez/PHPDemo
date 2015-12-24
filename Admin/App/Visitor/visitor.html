@@ -1,0 +1,87 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h4>İletişim Formu</h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Ziyaretçi Adı</th>
+                            <th>Ziyaretçi Email</th>
+                            <th>Gönderilme Tarihi</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="visitor in visitors track by $index">
+                            <td>{{$index+1}}</td>
+                            <td>{{visitor.FullName}}</td>
+                            <td>{{visitor.Email}}</td>
+                            <td>{{visitor.CreatedDate |date:'dd-MM-yyyy'}}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-sm btn-danger" ng-click="delete(visitor.Id)">Sil</button>
+                                    <button class="btn btn-info btn-sm" ng-click="select(visitor)">Görüntüle</button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="show-visitor-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">İletişim Formu Detayları</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h4>İletişim Formu Detay</h4>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Ad-Soyad</th>
+                                <td>{{selectedModel.FullName}}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{selectedModel.Email}}</td>
+                            </tr>
+                            <tr>
+                                <th>Gönderildiği Tarih</th>
+                                <td>{{selectedModel.CreatedDate | date: 'dd-MM-yyyy'}}</td>
+                            </tr>
+                            <tr>
+                                <th>Telefon</th>
+                                <td>{{selectedModel.Phone}}</td>
+                            </tr>
+                            <tr>
+                                <th>Konu</th>
+                                <td>{{selectedModel.Subject}}</td>
+                            </tr>
+                            <tr>
+                                <th>Mesaj</th>
+                                <td>{{selectedModel.Message}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
