@@ -40,7 +40,7 @@ servicesModule.factory("authService",function ($http, $location, $cookies, $q) {
                             $.unblockUI();
                             toastr.success("Giriş Başarılı");
                             $cookies.put('currentUser', result.data);
-                            $location.path("/");
+                            $location.path("/visitor");
                         }
 
                     });
